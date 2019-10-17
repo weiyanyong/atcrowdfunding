@@ -9,14 +9,9 @@
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
 
-    <context:annotation-config/>
-
     <context:component-scan base-package="com.atguigu.atcrowdfunding.*">
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
-    <!--	<context:component-scan base-package="com.atguigu.*">
-            <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
-        </context:component-scan>-->
 
     <!-- 加载外部属性配置文件 -->
     <bean id="propertyPlaceholderConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
@@ -35,10 +30,8 @@
         <property name="configLocation" value="classpath:mybatis/mybatis-config.xml"></property>
         <property name="dataSource" ref="dataSource"></property>
         <property name="mapperLocations">
-            <!--    <list>
-                    <value>classpath*:mybatis/mapper-*.xml</value>
-                </list>-->
             <list>
+                <!--<value>classpath*:mybatis/*Mapper.xml</value>-->
                 <value>classpath*:mybatis/mapper-*.xml</value>
             </list>
         </property>
@@ -46,7 +39,8 @@
 
     <!-- 扫描Mapper映射配置 -->
     <bean id="mapperScannerConfigurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="com.atguigu.crowdfunding.cpes.dao,com.atguigu.crowdfunding.dao"/>
+        <!-- <property name="basePackage" value="com.atguigu.atcrowdfunding.manager.dao,com.atguigu.atcrowdfunding.potal.dao"/> -->
+        <property name="basePackage" value="com.atguigu.atcrowdfunding.*.dao"/>
     </bean>
 
     <!-- 事务管理器 -->
@@ -58,11 +52,12 @@
         <tx:attributes>
             <tx:method name="*" propagation="REQUIRED" isolation="DEFAULT" rollback-for="java.lang.Exception"/>
             <tx:method name="query*" read-only="true"/>
+            <tx:method name="get*" read-only="true"/>
         </tx:attributes>
     </tx:advice>
 
     <aop:config>
-        <aop:advisor advice-ref="transactionAdvice" pointcut="execution(* com.atguigu..*Service.*(..))"/>
+        <aop:advisor advice-ref="transactionAdvice" pointcut="execution(* com.atguigu.atcrowdfunding..*ServiceImpl.*(..))"/>
     </aop:config>
 
 </beans>

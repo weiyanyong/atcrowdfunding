@@ -18,7 +18,7 @@ import java.util.Map;
 public class TestServiceImpl implements TestService {
 
     @Autowired
-    private TestDao testDao ;
+    private TestDao testDao;
 
     @Override
     public void insert() {

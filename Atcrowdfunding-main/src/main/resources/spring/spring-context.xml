@@ -12,6 +12,9 @@
 	<context:component-scan base-package="com.atguigu.*">
 		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
 	</context:component-scan>
+<!--	<context:component-scan base-package="com.atguigu.*">
+		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+	</context:component-scan>-->
 
 	<!-- 加载外部属性配置文件 -->
 	<bean id="propertyPlaceholderConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
@@ -29,12 +32,13 @@
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 	    <property name="configLocation" value="classpath:mybatis/mybatis-config.xml"></property>
 	    <property name="dataSource" ref="dataSource"></property>
-
-
 	    <property name="mapperLocations">
-	        <list>
+	    <!--    <list>
 	            <value>classpath*:mybatis/mapper-*.xml</value>
-	        </list>
+	        </list>-->
+			<list>
+				<value>classpath*:mybatis/mapper-*.xml</value>
+			</list>
 	    </property>
 	</bean>
 	

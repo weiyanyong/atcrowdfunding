@@ -1,7 +1,7 @@
 package com.atguigu.atcrowdfunding.manager.service.impl;
 
 import com.atguigu.atcrowdfunding.manager.dao.TestDao;
-import com.atguigu.atcrowdfunding.manager.dao.service.TestService;
+import com.atguigu.atcrowdfunding.manager.service.TestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

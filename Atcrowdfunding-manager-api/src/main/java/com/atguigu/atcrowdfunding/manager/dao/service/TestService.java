@@ -8,6 +8,6 @@ package com.atguigu.atcrowdfunding.manager.dao.service;
  */
 public interface TestService {
     public void  insert();
-   public void he();
+
 
 }

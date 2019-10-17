@@ -1,4 +1,4 @@
-package com.atguigu.atcrowdfunding.manager.dao.service;
+package com.atguigu.atcrowdfunding.manager.service;
 
 /**
  * @Auther: wyy

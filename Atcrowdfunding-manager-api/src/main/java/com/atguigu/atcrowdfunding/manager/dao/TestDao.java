@@ -10,6 +10,7 @@ import java.util.Map;
  * @Description: com.atguigu.atcrowdfunding.manager.dao
  * @version: 1.0
  */
+
 public interface TestDao {
     public void insert(Map map);
 }

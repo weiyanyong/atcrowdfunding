@@ -12,7 +12,7 @@ public class Role {
     public void setId(Integer id) {
         this.id = id;
     }
-
+//sdasd
     public String getName() {
         return name;
     }

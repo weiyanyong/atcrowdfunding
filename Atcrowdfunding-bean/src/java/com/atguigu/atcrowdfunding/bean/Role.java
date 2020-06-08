@@ -13,6 +13,7 @@ public class Role {
         this.id = id;
     }
 //sdasd
+    int i ;
     public String getName() {
         return name;
     }
